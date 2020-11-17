@@ -1,3 +1,14 @@
+//finding problem in case of
+// 1
+// 3 3 3
+// 4 4 4
+// 4 4 4
+// 4 4 4
+//expected/correct output 4
+//output shown 4 4 4
+//so used hashmap to resolve it....using array gives segmentaion fault not sure why
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
