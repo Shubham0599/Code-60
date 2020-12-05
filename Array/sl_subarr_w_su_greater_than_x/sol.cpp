@@ -53,3 +53,41 @@ int main() {
 	}
 	return 0;
 }
+
+
+
+//working code
+#include <iostream>
+#include <climits>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,x;
+	    cin>>n>>x;
+	    int arr[n];
+	    for(int i=0;i<n;i++){
+	        cin>>arr[i];
+	    }
+	    int sum=0;
+	    int mi=INT_MAX;
+	    int i=0,j=0;
+	    while(i>=j &&i<n){
+	        while(sum<=x&&i<n){
+	            sum+=arr[i];
+	            i++;
+	        }
+	        while(sum>x&&j<i){
+	            mi=min(mi,i-j);
+	            sum-=arr[j];
+	            j++;
+	        }
+	        
+	    }
+	    cout<<mi<<endl;
+	}
+	return 0;
+}
