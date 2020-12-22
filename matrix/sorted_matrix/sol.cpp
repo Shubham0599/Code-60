@@ -1,3 +1,8 @@
+// sort complexity will be (n*n)log(n*n);
+//in case of priority_queue in this solution , 
+//maximum element in heap in worst case will be n*sqrt(2), 
+//hence complexity to add an element in heap will be 2*
+
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
