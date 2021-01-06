@@ -1,54 +1,34 @@
 <pre>
 
-struct Node* reverse(Node* head){
-    
-    Node* c=head;
-    Node* p=NULL;
-    Node* n;
-    
-    while(c){
-      n=c->next;
-      c->next=p;
-      p=c;
-      c=n;
-    }
-    return p;
-}
+Given two numbers represented by two linked lists of size N and M. The task is to return a sum list. The sum list is a linked list representation of the addition of two input numbers.
 
+Example 1:
 
-struct Node* addTwoLists(struct Node* f, struct Node* s)
-{
-    // code here
-    f=reverse(f);
-    s=reverse(s);
-    int carry=0,val;
-     //  val=f->data+s->data+carry;
-    //  val=val%10;
-    int a,b;
-    Node *res=NULL;
-    Node *track;
-    while(f||s){
-    //val=f->data+s->data+carry;
-       a=f!=NULL?f->data:0;
-       b=s!=NULL?s->data:0;
-       val=a+b+carry;
-       carry=(val>=10)?1:0;
-       val=val%10;
-       if(res==NULL){ res=new Node(val);
-           track=res;
-       }
-       else {track->next=new Node(val);
-           track=track->next;
-       }
-       //f=f->next; s=s->next;
-       
-       if(f!=NULL)f=f->next;if(s!=NULL)s=s->next;
-    }
-    if(carry>0){
-       track->next=new Node(carry);
-        track=track->next; 
-    }
-    res=reverse(res);
-    return res;
-}
+Input:
+N = 2
+valueN[] = {4,5}
+M = 3
+valueM[] = {3,4,5}
+Output: 3 9 0  
+Explanation: For the given two linked
+list (4 5) and (3 4 5), after adding
+the two linked list resultant linked
+list will be (3 9 0).
+Example 2:
+
+Input:
+N = 2
+valueN[] = {6,3}
+M = 1
+valueM[] = {7}
+Output: 7 0
+Explanation: For the given two linked
+list (6 3) and (7), after adding the
+two linked list resultant linked list
+will be (7 0).
+Your Task:
+The task is to complete the function addTwoLists() which has node reference of both the linked lists and returns the head of the new list.        
+
+Expected Time Complexity: O(N+M)
+Expected Auxiliary Space: O(Max(N,M))
 </pre>

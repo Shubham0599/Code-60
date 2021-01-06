@@ -1,4 +1,4 @@
-
+//segmentation fault (sigsegv) section marked by comment ,have a close look
 struct Node* reverse(Node* head){
     
     Node* c=head;
