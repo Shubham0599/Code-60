@@ -1,4 +1,7 @@
+//no node found after the last node so fix that node and
+//for that we have to reverse and keep its track
 //recursive approch
+
 Node *compute(Node *head)
 {
     // your code goes here
