@@ -56,7 +56,7 @@ int lef=replacenode(root->left);
 int rig=replacenode(root->right);
 int rd=root->data;
 root->data=lef+rig;
-
+cout<<endl;
 return rd +root->data;
 
 }
