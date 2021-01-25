@@ -109,19 +109,6 @@ int sumofnode(node* root){
 if(root==NULL)return 0;
 return root->data + sumofnode(root->left)+sumofnode(root->right);
 }
-int mleft(node* lroot){
-int ma=daimeter(lroot);
-}
-
-int daimeter(node* root){
-    if(root->left!=NULL){
-            int mleft=mleft(root->left);
-    }else mleft=0;
-     if(root->right!=NULL){
-            int mright=mright(root->right);
-    }else mright=0;
-    return mright+mleft;
-}
 
 int main(){
     node * root=build();
@@ -130,7 +117,6 @@ int main(){
     cout<<"total no of node in tree:"<<noofnode(root);
     cout<<endl;
     cout<<"Sum:"<<sumofnode(root);
-    cout<<daimeter(root);
 //    cout<<height(root);
 //    cout<<endl;
 //    printkthlvl(root,3);
