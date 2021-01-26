@@ -88,19 +88,20 @@ root->left=buildbalancetree(a,s,mid-1);
 root->right=buildbalancetree(a,mid+1,e);
 return root;
 }
-
+int searc(int k ,int in[]){
+    int n=sizeof(in)/sizeof(in[0]);
+    for(int i=0;i<n;i++){
+        if(k==in[i]){
+            return i;
+        }
+    }
+}
 
 node* buildfrom(int pre[],int in[],int s,int e){
 static int i=0;
 if(s>e)return NULL;
 node* root=new node(pre[i]);
-int en=-1;
-for(int j=s;s<=e;j++){
-    if(in[j]==pre[i]){
-        en=j;
-        break;
-    }
-}
+int en=searc(pre[i],in);
 i++;
 root->left=buildfrom(pre,in,s,en-1);
 root->right=buildfrom(pre,in,en+1,e);
@@ -109,23 +110,23 @@ return root;
 
 
 int main(){
-//    node * root=build();
-//    print(root);
-//    cout<<endl;
-//    Pair pp=fastdiameter(root);
-//    cout<<"height"<<pp.height<<" Diameter"<<pp.diameter;
-//    cout<<endl;
-//    replacenode(root);
-//    print(root);
-// int a[]={1,2,3,4,5,6,7};
-// int n=sizeof(a)/sizeof(a[0]);
-// node * root=buildbalancetree(a,0,n-1);
-// printbfs(root);
-int pre[]={1,2,3,4,8,5,6,7};
-int in[]={3,2,8,4,1,6,7,5};
-int n=8;
-node * tre=buildfrom(pre,in,0,n-1);
-printbfs(tre);
+   node * root=build();
+   print(root);
+   cout<<endl;
+   Pair pp=fastdiameter(root);
+   cout<<"height"<<pp.height<<" Diameter"<<pp.diameter;
+   cout<<endl;
+   replacenode(root);
+   print(root);
+int a[]={1,2,3,4,5,6,7};
+int n=sizeof(a)/sizeof(a[0]);
+node* root=buildbalancetree(a,0,n-1);
+printbfs(root);
+//int pre[]={1,2,3,4,8,5,6,7};
+//int in[]={3,2,8,4,1,6,7,5};
+//int n=8;
+//node * tre=buildfrom(pre,in,0,n-1);
+//printbfs(tre);
 
 return 0;
 }
