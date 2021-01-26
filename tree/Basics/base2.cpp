@@ -56,20 +56,53 @@ int lef=replacenode(root->left);
 int rig=replacenode(root->right);
 int rd=root->data;
 root->data=lef+rig;
-
 return rd +root->data;
-
+}
+void printkthlvl(node* root,int k){
+if(root==NULL)return ;
+if(k==1)cout<<root->data<<" ";
+printkthlvl(root->left,k-1);
+printkthlvl(root->right,k-1);
+return;
 }
 
+int height(node* root){
+if(root==NULL)return 0;
+return 1+max(height(root->left),height(root->right));
+}
+
+void printbfs(node* root){
+int h=height(root);
+for(int i=1;i<=h;i++){
+    printkthlvl(root,i);
+    cout<<endl;
+}
+return;
+}
+
+node* buildbalancetree(int *a,int s,int e){
+if(s>e)return NULL;
+int mid=e +(s-e)/2;
+node* root=new node(a[mid]);
+root->left=buildbalancetree(a,s,mid-1);
+root->right=buildbalancetree(a,mid+1,e);
+return root;
+}
+
+
 int main(){
-    node * root=build();
-    print(root);
-    cout<<endl;
-    Pair pp=fastdiameter(root);
-    cout<<"height"<<pp.height<<" Diameter"<<pp.diameter;
-    cout<<endl;
-    replacenode(root);
-    print(root);
+//    node * root=build();
+//    print(root);
+//    cout<<endl;
+//    Pair pp=fastdiameter(root);
+//    cout<<"height"<<pp.height<<" Diameter"<<pp.diameter;
+//    cout<<endl;
+//    replacenode(root);
+//    print(root);
+int a[]={1,2,3,4,5,6,7};
+int n=sizeof(a)/sizeof(a[0]);
+node* root=buildbalancetree(a,0,n-1);
+printbfs(root);
 
 return 0;
 }
