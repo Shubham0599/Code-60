@@ -1,0 +1,5 @@
+
+
+			t1->left==t2->left  && t1->right==t2->right
+t1>data=t2->data     &&   (			or                                      )
+			t1->left==t2->right && t1->right==t2->left
