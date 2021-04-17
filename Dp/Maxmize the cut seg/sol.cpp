@@ -63,3 +63,17 @@ class Solution
     return (dp[3][n]<0)?0:dp[3][n];
     }
 };
+
+//another app
+int dpsolve(int n, int x, int y, int z ){
+    int dp[n+1];
+    memset(dp,-1,n+1);
+    for(int i=0;i<n+1;i++){
+        if(dp[i]!=-1){
+            if(i+x<=n)dp[i]=max(dp[i+x],1+dp[i]);
+            if(i+y<=n)dp[i]=max(dp[i+y],1+dp[i]);
+            if(i+z<=n)dp[i]=max(dp[i+z],1+dp[i])
+        }
+    }
+return dp[n];
+}
